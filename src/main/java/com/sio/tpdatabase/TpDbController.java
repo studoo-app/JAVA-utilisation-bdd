@@ -38,6 +38,10 @@ public class TpDbController implements Initializable {
     private Button btnUpdate;
     @FXML
     private TextField txtPrice;
+    @FXML
+    private TextField txtSearch;
+    @FXML
+    private TextField txtPriceFilter;
 
     public TpDbController(ProductService productService) {
         this.productService = productService;
@@ -65,6 +69,23 @@ public class TpDbController implements Initializable {
         txtDescription.setText(product.getDescription());
         txtPrice.setText(String.valueOf(product.getPrice()));
     }
+
+    @FXML
+    protected void onSearchTermsChange() {
+        tvProducts.setItems(FXCollections.observableArrayList(productService.findByName(txtSearch.getText())));
+    }
+
+    @FXML
+    protected void onPriceFilterChange() {
+
+        int price = Integer.parseInt(txtPriceFilter.getText());
+        System.out.println(price);
+
+        tvProducts.setItems(FXCollections.observableArrayList(
+                productService.findByPriceGreaterThanEqual(price)
+        ));
+    }
+
 
 
     @FXML

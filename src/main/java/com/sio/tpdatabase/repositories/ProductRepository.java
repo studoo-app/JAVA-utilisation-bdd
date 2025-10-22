@@ -12,4 +12,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Override
     Optional<Product> findById(Integer integer);
+
+    List<Product> findByNameContaining(String name);
+
+    List<Product> findByPriceGreaterThanEqual(int price);
 }

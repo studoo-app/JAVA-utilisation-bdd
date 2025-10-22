@@ -31,4 +31,12 @@ public class ProductService {
         productRepository.delete(product);
     }
 
+    public List<Product> findByName(String name) {
+        return productRepository.findByNameContaining(name);
+    }
+
+    public List<Product> findByPriceGreaterThanEqual(int price) {
+        return productRepository.findByPriceGreaterThanEqual(price);
+    }
+
 }

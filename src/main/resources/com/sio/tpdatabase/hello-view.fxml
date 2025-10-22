@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sio.tpdatabase.TpDbController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sio.tpdatabase.TpDbController">
    <children>
       <AnchorPane layoutX="15.0" prefHeight="126.0" prefWidth="487.0">
          <children>
@@ -22,7 +22,15 @@
             <Button fx:id="btnDelete" layoutX="306.0" layoutY="76.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="25.0" prefWidth="149.0" text="Supprimer" />
          </children>
       </AnchorPane>
-      <TableView fx:id="tvProducts" layoutX="14.0" layoutY="130.0" onMouseClicked="#onTableViewSelectedLine" prefHeight="256.0" prefWidth="487.0">
+      <AnchorPane layoutX="15.0" layoutY="126.0" prefHeight="89.0" prefWidth="487.0">
+         <children>
+            <TextField fx:id="txtSearch" layoutX="14.0" layoutY="23.0" onAction="#onSearchTermsChange" prefHeight="25.0" prefWidth="140.0" promptText="Rechercher" />
+            <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="140.0" text="Rechercher" />
+            <Label layoutX="166.0" layoutY="6.0" prefHeight="17.0" prefWidth="199.0" text="Filtrer par prix (Plus grand que)" />
+            <TextField fx:id="txtPriceFilter" layoutX="166.0" layoutY="23.0" onAction="#onPriceFilterChange" prefHeight="25.0" prefWidth="161.0" promptText="Rechercher" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tvProducts" layoutX="15.0" layoutY="230.0" onMouseClicked="#onTableViewSelectedLine" prefHeight="256.0" prefWidth="487.0">
         <columns>
           <TableColumn fx:id="tcId" prefWidth="48.0" text="ID" />
           <TableColumn fx:id="tcName" prefWidth="102.0" text="name" />
