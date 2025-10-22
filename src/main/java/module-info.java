@@ -1,4 +1,4 @@
-open module com.sio.tpdatabase {
+open module com.sio.tpdatabase{
     requires javafx.controls;
     requires javafx.fxml;
     requires spring.boot;
@@ -10,4 +10,5 @@ open module com.sio.tpdatabase {
     requires org.hibernate.orm.core;
     requires spring.data.commons;
     requires jdk.jfr;
+    requires javafx.base;
 }
