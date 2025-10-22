@@ -1,0 +1,33 @@
+services:
+  database:
+    container_name: tpdb-database
+    image: mariadb:10.5.8
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: app_db
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - ./var/dbdata:/var/lib/mysql
+    networks:
+      - tpdb_network
+  phpmyadmin:
+    container_name: tpdb-pma
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 1G
+      MEMORY_LIMIT: 512M
+      MAX_EXECUTION_TIME: 0
+    restart: always
+    links:
+      - database
+    networks:
+      - tpdb_network
+networks:
+  tpdb_network:
